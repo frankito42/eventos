@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob Black - Producer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('/api/placeholder/1920/1080') center/cover no-repeat;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem 4rem;
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00c3ff;
+        }
+
+        .main-content {
+            text-align: center;
+            margin: auto;
+            width: 100%;
+            padding: 0rem;
+        }
+
+        .title {
+            font-size: 5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+
+
+
+        .subtitle { font-size: 3.5rem;  }
+
+
+
+
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .copyright {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #00c3ff;
+        }
+
+        /* Large screens (1200px and up) */
+        @media (min-width: 1200px) {
+            .container {
+                padding: 3rem 6rem;
+            }
+            .title {
+                font-size: 14rem;
+            }
+            .title2 {
+                font-size: 4rem;
+            }
+            
+            .subtitle {
+                font-size: 4rem;
+            }
+            .slide-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Medium screens (992px to 1199px) */
+        @media (max-width: 1199px) {
+            .container {
+                padding: 2rem 4rem;
+            }
+            .title2 {
+                font-size: 3rem;
+            }
+            .title {
+                font-size: 4.5rem;
+            }
+            .subtitle {
+                font-size: 3rem;
+            }
+        }
+
+        /* Tablets (768px to 991px) */
+        @media (max-width: 991px) {
+            .slide-title {
+                font-size: 3rem;
+            }
+            .slide-content {
+                left: 3rem;
+                bottom: 3rem;
+            }
+            .container {
+                padding: 2rem;
+            }
+            .title {
+                font-size: 3.5rem;
+            }
+            .title2 {
+                font-size: 3rem;
+            }
+            .subtitle {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                gap: 1.5rem;
+            }
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Mobile landscape (576px to 767px) */
+        @media (max-width: 767px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .title2 {
+                font-size: 2rem;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .title {
+                font-size: 3rem;
+            }
+            
+            .subtitle {
+                font-size: 2rem;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .slide {
+                height: 400px;
+            }
+
+            .slide-title {
+                font-size: 2.5rem;
+            }
+
+            .slide-content {
+                left: 2rem;
+                bottom: 2rem;
+            }
+
+            .carousel-button {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Mobile portrait (up to 575px) */
+        @media (max-width: 575px) {
+            .slide {
+                height: 300px;
+            }
+
+            .slide-title {
+                font-size: 2rem;
+            }
+
+            .date {
+                font-size: 0.8rem;
+            }
+
+            .artist {
+                font-size: 1.2rem;
+            }
+
+            .slide-content {
+                left: 1.5rem;
+                bottom: 1.5rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+            .title2 {
+                font-size: 1.3rem;
+            }
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .social-links a {
+                font-size: 0.8rem;
+            }
+            
+            .copyright {
+                font-size: 0.8rem;
+            }
+        }
+        /* Carousel Styles */
+        .carousel {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            margin: 2rem 0;
+            background: #001524;
+            border-radius: 10px;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            position: relative;
+            height: 600px;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 4rem;
+            left: 4rem;
+            z-index: 2;
+        }
+
+        .date {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #00c3ff;
+        }
+
+        .slide-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .artist {
+            font-size: 1.5rem;
+            color: #00c3ff;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            z-index: 3;
+        }
+
+        .carousel-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-button.prev {
+            left: 2rem;
+        }
+
+        .carousel-button.next {
+            right: 2rem;
+        }
+        /* #bg-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;} */
+        canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; /* Asegura que esté en el fondo */ }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="#" class="logo">JR</a>
+            <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="nav-links">
+                <!-- <a href="#artists">Artists</a> -->
+                <a href="index.html">Inicio</a>
+                <!-- <a href="#events">Events</a>
+                <a href="#photo">Photo</a> -->
+                <a href="eventos.html">Eventos</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </header>
+        <canvas id="particles"></canvas>
+        <!-- <video autoplay muted loop id="bg-video"> <source src="bg.mp4" type="video/mp4"> Your browser does not support the video tag. </video> -->
+        <main style="display: flex;justify-content: center;" class="main-content">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide">
+                        <img src="s1.jpg" alt="Dark Streets">
+                        <div class="gradient-overlay"></div>
+                        <div class="slide-content">
+                            <div class="date">AGOSTO 18, 2023</div>
+                            <h2 class="slide-title">JEMAX ROCK</h2>
+                            <div class="artist">¡Fiesta Sin Limites!</div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="s1.jpg" alt="Neon Lights">
+                        <div class="gradient-overlay"></div>
+                        <div class="slide-content">
+                            <div class="date">SEPTIEMBRE 21, 2023</div>
+                            <h2 class="slide-title">NOCHE LATINA</h2>
+                            <div class="artist">La Mejor Música</div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="s1.jpg" alt="Midnight">
+                        <div class="gradient-overlay"></div>
+                        <div class="slide-content">
+                            <div class="date">OCTUBRE 15, 2023</div>
+                            <h2 class="slide-title">ROCK NIGHT</h2>
+                            <div class="artist">Rock Sin Límites</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </main>
+
+        <footer>
+            <div class="copyright">jemax ©. All Rights Reserved.</div>
+            <div class="social-links">
+                <a href="#facebook"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                <a href="#twitter"><i class="fa-brands fa-twitter fa-2x"></i></a>
+                <a href="#instagram"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                <a href="#youtube"><i class="fa-brands fa-youtube fa-2x"></i></a>
+                <a href="#telegram"><i class="fa-brands fa-telegram fa-2x"></i></a>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js" integrity="sha512-yFjZbTYRCJodnuyGlsKamNE/LlEaEAxSUDe5+u61mV8zzqJVFOH7TnULE2/PP/l5vKWpUNnF4VGVkXh3MjgLsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+     const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+
+let particlesArray = [];
+const numberOfParticles = 100;
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+window.addEventListener('resize', function() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2.5 + 1;
+        this.alpha = 1; // Añadimos la propiedad alpha
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        // Reducción gradual del tamaño y alpha
+        if (this.alpha > 0.01) this.alpha -= 0.001; // Aún más lento
+        if (this.size > 0.2) this.size -= 0.01; // Aún más lento
+
+        // Reaparece en la pantalla si sale de los límites
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+    }
+    draw() {
+        ctx.fillStyle = 'rgba(5, 65, 120, ' + this.alpha + ')';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fill();
+    }
+}
+
+function init() {
+    particlesArray = [];
+    for (let i = 0; i < numberOfParticles; i++) {
+        particlesArray.push(new Particle());
+    }
+}
+
+function animate() {
+    ctx.fillStyle = '#000000'; // Cambia este valor para el color de fondo deseado
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particlesArray.length; i++) {
+        if (particlesArray[i].alpha <= 0.01 || particlesArray[i].size <= 0.2) {
+            particlesArray.splice(i, 1); // Elimina la partícula desaparecida
+            particlesArray.push(new Particle()); // Añade una nueva partícula
+            i--; // Ajuste el índice después de eliminar una partícula
+        } else {
+            particlesArray[i].update();
+            particlesArray[i].draw();
+        }
+    }
+    requestAnimationFrame(animate);
+}
+
+init();
+animate();
+
+
+
+
+
+
+        const carousel = document.querySelector('.carousel-inner');
+        const slides = document.querySelectorAll('.slide');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        let currentSlide = 0;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateCarousel();
+        }
+
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+
+        // Auto advance slides
+        setInterval(nextSlide, 5000);
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
