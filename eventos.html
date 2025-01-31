@@ -70,7 +70,7 @@
             text-align: center;
             margin: auto;
             width: 100%;
-            padding: 0rem;
+            padding: 2rem;
         }
 
         .title {
@@ -82,14 +82,7 @@
             margin-bottom: 0.5rem;
         }
 
-
-
-
         .subtitle { font-size: 3.5rem;  }
-
-
-
-
 
         .menu-toggle {
             display: none;
@@ -153,9 +146,6 @@
             .subtitle {
                 font-size: 4rem;
             }
-            .slide-title {
-                font-size: 3.5rem;
-            }
         }
 
         /* Medium screens (992px to 1199px) */
@@ -176,13 +166,6 @@
 
         /* Tablets (768px to 991px) */
         @media (max-width: 991px) {
-            .slide-title {
-                font-size: 3rem;
-            }
-            .slide-content {
-                left: 3rem;
-                bottom: 3rem;
-            }
             .container {
                 padding: 2rem;
             }
@@ -245,47 +228,10 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            .slide {
-                height: 400px;
-            }
-
-            .slide-title {
-                font-size: 2.5rem;
-            }
-
-            .slide-content {
-                left: 2rem;
-                bottom: 2rem;
-            }
-
-            .carousel-button {
-                width: 40px;
-                height: 40px;
-            }
         }
 
         /* Mobile portrait (up to 575px) */
         @media (max-width: 575px) {
-            .slide {
-                height: 300px;
-            }
-
-            .slide-title {
-                font-size: 2rem;
-            }
-
-            .date {
-                font-size: 0.8rem;
-            }
-
-            .artist {
-                font-size: 1.2rem;
-            }
-
-            .slide-content {
-                left: 1.5rem;
-                bottom: 1.5rem;
-            }
             .container {
                 padding: 1rem;
             }
@@ -312,63 +258,55 @@
                 font-size: 0.8rem;
             }
         }
-        /* Carousel Styles */
+
+        /* Carrusel Styles */
         .carousel {
-            flex: 1;
-            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 2rem auto;
             overflow: hidden;
-            margin: 2rem 0;
-            background: #001524;
+            position: relative;
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .carousel-inner {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            height: 100%;
         }
 
         .slide {
             flex: 0 0 100%;
             position: relative;
-            height: 600px;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .gradient-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
         }
 
         .slide-content {
-            position: absolute;
-            bottom: 4rem;
-            left: 4rem;
-            z-index: 2;
-        }
-
-        .date {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            color: #00c3ff;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 90%;
         }
 
         .slide-title {
-            font-size: 4rem;
-            font-weight: 700;
+            font-size: 2rem;
             margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        .artist {
-            font-size: 1.5rem;
+        .slide-description {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .slide-date {
+            font-size: 0.9rem;
             color: #00c3ff;
         }
 
@@ -379,15 +317,14 @@
             background: rgba(0, 0, 0, 0.5);
             border: none;
             color: white;
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: background-color 0.3s;
-            z-index: 3;
         }
 
         .carousel-button:hover {
@@ -395,14 +332,55 @@
         }
 
         .carousel-button.prev {
-            left: 2rem;
+            left: 1rem;
         }
 
         .carousel-button.next {
-            right: 2rem;
+            right: 1rem;
         }
-        /* #bg-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;} */
-        canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; /* Asegura que esté en el fondo */ }
+
+        @media (max-width: 768px) {
+            .slide {
+                height: 300px;
+            }
+
+            .slide-title {
+                font-size: 1.5rem;
+            }
+
+            .slide-description {
+                font-size: 0.9rem;
+            }
+
+            .slide-date {
+                font-size: 0.8rem;
+            }
+
+            .carousel-button {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide {
+                height: 250px;
+            }
+
+            .slide-title {
+                font-size: 1.2rem;
+            }
+
+            .slide-description {
+                font-size: 0.8rem;
+            }
+
+            .slide-date {
+                font-size: 0.7rem;
+            }
+        }
+
+        canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -416,44 +394,34 @@
                 <span></span>
             </div>
             <nav class="nav-links">
-                <!-- <a href="#artists">Artists</a> -->
                 <a href="index.html">Inicio</a>
-                <!-- <a href="#events">Events</a>
-                <a href="#photo">Photo</a> -->
                 <a href="eventos.html">Eventos</a>
                 <a href="contacto.html">Contacto</a>
             </nav>
         </header>
         <canvas id="particles"></canvas>
-        <!-- <video autoplay muted loop id="bg-video"> <source src="bg.mp4" type="video/mp4"> Your browser does not support the video tag. </video> -->
-        <main style="display: flex;justify-content: center;" class="main-content">
+        <main class="main-content">
             <div class="carousel">
                 <div class="carousel-inner">
-                    <div class="slide">
-                        <img src="s1.jpg" alt="Dark Streets">
-                        <div class="gradient-overlay"></div>
+                    <div class="slide" style="background-image: url('https://via.placeholder.com/1200x400');">
                         <div class="slide-content">
-                            <div class="date">AGOSTO 18, 2023</div>
-                            <h2 class="slide-title">JEMAX ROCK</h2>
-                            <div class="artist">¡Fiesta Sin Limites!</div>
+                            <h2 class="slide-title">Evento 1</h2>
+                            <p class="slide-description">Descripción del primer evento. ¡No te lo pierdas!</p>
+                            <div class="slide-date">Fecha: 18 de Agosto, 2023</div>
                         </div>
                     </div>
-                    <div class="slide">
-                        <img src="s1.jpg" alt="Neon Lights">
-                        <div class="gradient-overlay"></div>
+                    <div class="slide" style="background-image: url('https://via.placeholder.com/1200x400');">
                         <div class="slide-content">
-                            <div class="date">SEPTIEMBRE 21, 2023</div>
-                            <h2 class="slide-title">NOCHE LATINA</h2>
-                            <div class="artist">La Mejor Música</div>
+                            <h2 class="slide-title">Evento 2</h2>
+                            <p class="slide-description">Descripción del segundo evento. ¡Ven y disfruta!</p>
+                            <div class="slide-date">Fecha: 21 de Septiembre, 2023</div>
                         </div>
                     </div>
-                    <div class="slide">
-                        <img src="s1.jpg" alt="Midnight">
-                        <div class="gradient-overlay"></div>
+                    <div class="slide" style="background-image: url('https://via.placeholder.com/1200x400');">
                         <div class="slide-content">
-                            <div class="date">OCTUBRE 15, 2023</div>
-                            <h2 class="slide-title">ROCK NIGHT</h2>
-                            <div class="artist">Rock Sin Límites</div>
+                            <h2 class="slide-title">Evento 3</h2>
+                            <p class="slide-description">Descripción del tercer evento. ¡Una noche inolvidable!</p>
+                            <div class="slide-date">Fecha: 15 de Octubre, 2023</div>
                         </div>
                     </div>
                 </div>
@@ -475,82 +443,75 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js" integrity="sha512-yFjZbTYRCJodnuyGlsKamNE/LlEaEAxSUDe5+u61mV8zzqJVFOH7TnULE2/PP/l5vKWpUNnF4VGVkXh3MjgLsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-     const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
 
-let particlesArray = [];
-const numberOfParticles = 100;
+        let particlesArray = [];
+        const numberOfParticles = 100;
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-window.addEventListener('resize', function() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
 
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2.5 + 1;
-        this.alpha = 1; // Añadimos la propiedad alpha
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2.5 + 1;
+                this.alpha = 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
 
-        // Reducción gradual del tamaño y alpha
-        if (this.alpha > 0.01) this.alpha -= 0.001; // Aún más lento
-        if (this.size > 0.2) this.size -= 0.01; // Aún más lento
+                if (this.alpha > 0.01) this.alpha -= 0.001;
+                if (this.size > 0.2) this.size -= 0.01;
 
-        // Reaparece en la pantalla si sale de los límites
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
-    }
-    draw() {
-        ctx.fillStyle = 'rgba(5, 65, 120, ' + this.alpha + ')';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.closePath();
-        ctx.fill();
-    }
-}
-
-function init() {
-    particlesArray = [];
-    for (let i = 0; i < numberOfParticles; i++) {
-        particlesArray.push(new Particle());
-    }
-}
-
-function animate() {
-    ctx.fillStyle = '#000000'; // Cambia este valor para el color de fondo deseado
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < particlesArray.length; i++) {
-        if (particlesArray[i].alpha <= 0.01 || particlesArray[i].size <= 0.2) {
-            particlesArray.splice(i, 1); // Elimina la partícula desaparecida
-            particlesArray.push(new Particle()); // Añade una nueva partícula
-            i--; // Ajuste el índice después de eliminar una partícula
-        } else {
-            particlesArray[i].update();
-            particlesArray[i].draw();
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(5, 65, 120, ' + this.alpha + ')';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+            }
         }
-    }
-    requestAnimationFrame(animate);
-}
 
-init();
-animate();
+        function init() {
+            particlesArray = [];
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
 
+        function animate() {
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                if (particlesArray[i].alpha <= 0.01 || particlesArray[i].size <= 0.2) {
+                    particlesArray.splice(i, 1);
+                    particlesArray.push(new Particle());
+                    i--;
+                } else {
+                    particlesArray[i].update();
+                    particlesArray[i].draw();
+                }
+            }
+            requestAnimationFrame(animate);
+        }
 
-
-
-
+        init();
+        animate();
 
         const carousel = document.querySelector('.carousel-inner');
         const slides = document.querySelectorAll('.slide');
@@ -575,24 +536,30 @@ animate();
         prevButton.addEventListener('click', prevSlide);
         nextButton.addEventListener('click', nextSlide);
 
-        // Auto advance slides
-        setInterval(nextSlide, 5000);
-    
+        let autoSlideInterval = setInterval(nextSlide, 5000);
 
+        carousel.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        carousel.addEventListener('mouseleave', () => autoSlideInterval = setInterval(nextSlide, 5000));
 
+        let touchStartX = 0;
+        let touchEndX = 0;
 
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
 
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
 
-
-
-
-
-
-
-
-
-
-
+        function handleSwipe() {
+            if (touchEndX < touchStartX) {
+                nextSlide();
+            } else if (touchEndX > touchStartX) {
+                prevSlide();
+            }
+        }
     </script>
 </body>
 </html>

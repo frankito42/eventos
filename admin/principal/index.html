@@ -126,7 +126,7 @@
     </header>
     <div class="container mt-2">
         <!-- Button trigger modal -->
-    <button type="button" class="btn btn-info" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#modalClienteNuevo">
+    <button type="button" class="btn btn-info" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#modalNuevoEvento">
         Crear Evento
     </button>
 
@@ -134,7 +134,7 @@
         <div class="col-12">
            <form id="search">
                 <div class="input-group rounded">
-                    <input type="search" name="search" class="form-control rounded" placeholder="Buscar cliente" aria-label="Search" aria-describedby="search-addon" />
+                    <input type="search" name="search" class="form-control rounded" placeholder="Buscar evento" aria-label="Search" aria-describedby="search-addon" />
                     <span class="input-group-text border-0" id="search-addon">
                     <i class="fas fa-search"></i>
                     </span>
@@ -143,19 +143,8 @@
         </div>
     </div>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
-        <div class="col">
-          <div class="card">
-            <img src="https://media.istockphoto.com/id/486420378/es/foto/cabezal-de-nataci%C3%B3n-en-pista-de-baile.jpg?s=612x612&w=0&k=20&c=ejizPt_OXETjf2pzuIKlq6uF-oxIjXpYPgRHrOwiHZA=" class="card-img-top" alt="Hollywood Sign on The Hill"/>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural lead-in to
-                additional content. This content is a little bit longer.
-              </p>
-            </div>
-          </div>
-        </div>
+    <div id="listarEventos" class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+        
         <div class="col">
           <div class="card">
             <img src="https://media.istockphoto.com/id/486420378/es/foto/cabezal-de-nataci%C3%B3n-en-pista-de-baile.jpg?s=612x612&w=0&k=20&c=ejizPt_OXETjf2pzuIKlq6uF-oxIjXpYPgRHrOwiHZA=" class="card-img-top" alt="Palm Springs Road"/>
@@ -196,10 +185,10 @@
     <section>
         <!-- //////////////////////////////////////SECTION MODALES XDDDDDDDDDDDDDDDDD///////////////////////////////////////////////// -->
         <!-- //////////////////////////////////////SECTION MODALES NUEVO CLIENTE XDDD///////////////////////////////////////////////// -->
-        <div class="modal fade" id="modalClienteNuevo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modalNuevoEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
-                <form id="addCliente">
+                <form id="formEvento" enctype="multipart/form-data">
                 <div class="modal-header">
                 <h5 class="modal-title text-white" id="exampleModalLabel" style="background: #54b4d3;padding: 1%;border-radius: 5px;">Crear Nuevo Evento</h5>
                 <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
@@ -208,13 +197,13 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-outline" data-mdb-input-init>
-                                <input type="text" id="nombre" name="nombre" required class="form-control" />
-                                <label class="form-label" for="nombre">Ingresar Titulo</label>
+                                <input type="text" id="titulo" name="titulo" required class="form-control" />
+                                <label class="form-label" for="titulo">Ingresar Titulo</label>
                             </div>
                         </div>
                         <div class="col-12 mt-2">
                             <div class="form-outline" data-mdb-input-init>
-                                <textarea class="form-control" id="descripcion" rows="4"></textarea>
+                                <textarea class="form-control" id="descripcion" name="descripcion" rows="4"></textarea>
                                 <label class="form-label" for="descripcion">Descripcion</label>
                             </div>
                         </div>
@@ -227,31 +216,50 @@
                                 <div class="d-flex justify-content-center">
                                     <div data-mdb-ripple-init class="btn btn-primary btn-rounded">
                                         <label class="form-label text-white m-1" for="customFile1">Seleccionar banner</label>
-                                        <input type="file" class="form-control d-none" id="customFile1" onchange="displaySelectedImage(event, 'selectedImage')" />
+                                        <input type="file" class="form-control d-none" id="customFile1" name="banner" onchange="displaySelectedImage(event, 'selectedImage')" />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mt-2">
+                        <div class="col-6 mt-2">
+
+                                <label class="form-label" for="fechaInicio">Fecha de inicio del evento</label>
+                                <input type="date" id="fechaInicio" name="fechaInicio" required class="form-control" />
+                            
+                        </div>
+                        <div class="col-6 mt-2">
+                                <label class="form-label" for="finalAnticipadas">Fecha final de anticipadas</label>
+                                <input type="date" id="finalAnticipadas" name="finalAnticipadas" required class="form-control" />
+                        </div>
+                        <div class="col-6 mt-2">
                             <div class="form-outline" data-mdb-input-init>
-                                <input type="text" id="telefono" name="telefono" required class="form-control" />
-                                <label class="form-label" for="telefono">Ingresar telefono</label>
+                                <input type="namber" id="entradasAnticipadas" name="entradasAnticipadas" required class="form-control" />
+                                <label class="form-label" for="entradasAnticipadas">Entradas anticipadas</label>
                             </div>
                         </div>
-                        <div class="col-12 mt-2">
+                        <div class="col-6 mt-2">
                             <div class="form-outline" data-mdb-input-init>
-                                <input type="text" id="domicilio" name="domicilio" required class="form-control" />
-                                <label class="form-label" for="domicilio">Ingresar domicilio</label>
+                                <input type="namber" id="totalEntradas" name="totalEntradas" required class="form-control" />
+                                <label class="form-label" for="totalEntradas">Total de entradas</label>
                             </div>
                         </div>
-                        <div class="col-8 mt-2">
+                        <div class="col-6 mt-2">
                             <div class="form-outline" data-mdb-input-init>
-                                <input type="text" id="nroCuenta" name="nroCuenta" required class="form-control" />
-                                <label class="form-label" for="nroCuenta">Numero de cuenta</label>
+                                <input type="namber" id="precioAnticipadas" name="precioAnticipadas" required class="form-control" />
+                                <label class="form-label" for="precioAnticipadas">Precio en anticipadas</label>
                             </div>
                         </div>
-                        <div class="col-4 mt-2">
-                            <button class="btn btn-info">Añadir cuenta</button>
+                        <div class="col-6 mt-2">
+                            <div class="form-outline" data-mdb-input-init>
+                                <input type="namber" id="precioEntrada" name="precioEntrada" required class="form-control" />
+                                <label class="form-label" for="precioEntrada">Precio en normal</label>
+                            </div>
+                        </div>
+                        <div class="col-6 mt-2">
+                            <div class="form-outline" data-mdb-input-init>
+                                <input type="namber" id="precioVip" name="precioVip" required class="form-control" />
+                                <label class="form-label" for="precioVip">Precio vip</label>
+                            </div>
                         </div>
                     </div>
                 </div>

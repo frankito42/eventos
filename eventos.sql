@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-01-2025 a las 03:51:40
+-- Tiempo de generación: 29-01-2025 a las 20:18:10
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -20,6 +20,34 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `eventos`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `eventos`
+--
+
+CREATE TABLE `eventos` (
+  `idevento` int(11) NOT NULL,
+  `titulo` varchar(150) NOT NULL,
+  `descripcion` text NOT NULL,
+  `banner` varchar(50) NOT NULL,
+  `fechaInicio` date NOT NULL,
+  `finalAnticipadas` date NOT NULL,
+  `entradasAnticipadas` int(11) NOT NULL,
+  `totalEntradas` int(11) NOT NULL,
+  `precioAnticipadas` int(11) NOT NULL,
+  `precioEntrada` int(11) NOT NULL,
+  `precioVip` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `eventos`
+--
+
+INSERT INTO `eventos` (`idevento`, `titulo`, `descripcion`, `banner`, `fechaInicio`, `finalAnticipadas`, `entradasAnticipadas`, `totalEntradas`, `precioAnticipadas`, `precioEntrada`, `precioVip`) VALUES
+(1, 'La fiesta de din de año', 'la fiesta mas esperada donde actuaran como protagonistas axel, reik y melisa', '', '2025-02-28', '2025-02-01', 100, 350, 10000, 15000, 25000),
+(4, 'asd', 'asd asd ', '../banners/1738163437_download.png', '2025-01-15', '2024-12-31', 100, 350, 10000, 15000, 25000);
 
 -- --------------------------------------------------------
 
@@ -46,6 +74,12 @@ INSERT INTO `users` (`id`, `user`, `pass`, `tipo`) VALUES
 --
 
 --
+-- Indices de la tabla `eventos`
+--
+ALTER TABLE `eventos`
+  ADD PRIMARY KEY (`idevento`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -54,6 +88,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `eventos`
+--
+ALTER TABLE `eventos`
+  MODIFY `idevento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

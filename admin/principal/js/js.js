@@ -1,26 +1,23 @@
-const modalNewCliente = document.getElementById('modalClienteNuevo')
-const modailCliente = new mdb.Modal(modalNewCliente)
+const modalNewCliente = document.getElementById('modalNuevoEvento')
+const modalEventoNew = new mdb.Modal(modalNewCliente)
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", async function(event) {
     //código a ejecutar cuando existe la certeza de que el DOM está listo para recibir acciones
     sesionOk()
+    await traerEventos()
 });
 document.getElementById("cerrarSesion").addEventListener("click",()=>{
     cerrarSesion()
 })
-document.getElementById("search").addEventListener("submit",async (e)=>{
+document.getElementById("formEvento").addEventListener("submit",async (e)=>{
     e.preventDefault()
-    await buscarClientes()
-})
-document.getElementById("addCliente").addEventListener("submit",async (e)=>{
-    e.preventDefault()
-    await guardarCliente()
+    await guardarEvento()
 })
 
 
-async function guardarCliente() {
-    let form=new FormData(document.getElementById("addCliente"))
-    await fetch('php/insertCliente.php',{
+async function guardarEvento() {
+    let form=new FormData(document.getElementById("formEvento"))
+    await fetch('php/insertEvento.php',{
         method:"post",
         body:form,
     })
@@ -28,8 +25,8 @@ async function guardarCliente() {
     .then(response => response.json())  // convertir a json
     .then(json => {
         console.log(json)
-        modailCliente.hide()
-        document.getElementById("addCliente").reset()
+        modalEventoNew.hide()
+        document.getElementById("formEvento").reset()
     }) 
 }
 
@@ -47,10 +44,10 @@ function cerrarSesion() {
     location.href="../login/login.html"
 }
 
-async function buscarClientes() {
+async function traerEventos() {
     // Solicitud GET (Request).
     let form=new FormData(document.getElementById("search"))
-    await fetch('php/filtrar.php',{
+    await fetch('php/listarEventos.php',{
         method:"post",
         body:form,
     })
@@ -62,18 +59,21 @@ async function buscarClientes() {
     })    //imprimir los datos en la consola
 }
 function dibujar(params) {
-    let card=`<div class="col-12 mb-2">
-            <div class="d-flex align-items-center cardCliente">
-                <i class="fa-solid fa-person fa-2x"></i>
-                <div class="ms-3">
-                  <p class="fw-bold mb-1">${params.nombre} ${params.apellido}</p>
-                  <p class="text-muted mb-0">Nro cuenta ${params.nroCuenta}</p>
-                  <p class="text-muted mb-0">${params.cedula}</p>
-                  <button class="btn btn-success">Ver estado de cuenta</button>
-                </div>
-              </div>
+    let card=``
+    params.forEach(element => {
+        card+=`<div class="col">
+          <div class="card">
+            <img src="banners/${element.banner}" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+            <div class="card-body">
+              <h5 class="card-title">${element.titulo}</h5>
+              <p class="card-text">
+                ${element.descripcion}
+              </p>
+            </div>
+          </div>
         </div>`
-        document.getElementById("listarClientes").innerHTML=card
+    });
+    document.getElementById("listarEventos").innerHTML=card
 }
 
 
