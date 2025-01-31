@@ -402,28 +402,9 @@
         <canvas id="particles"></canvas>
         <main class="main-content">
             <div class="carousel">
-                <div class="carousel-inner">
-                    <div class="slide" style="background-image: url('https://via.placeholder.com/1200x400');">
-                        <div class="slide-content">
-                            <h2 class="slide-title">Evento 1</h2>
-                            <p class="slide-description">Descripción del primer evento. ¡No te lo pierdas!</p>
-                            <div class="slide-date">Fecha: 18 de Agosto, 2023</div>
-                        </div>
-                    </div>
-                    <div class="slide" style="background-image: url('https://via.placeholder.com/1200x400');">
-                        <div class="slide-content">
-                            <h2 class="slide-title">Evento 2</h2>
-                            <p class="slide-description">Descripción del segundo evento. ¡Ven y disfruta!</p>
-                            <div class="slide-date">Fecha: 21 de Septiembre, 2023</div>
-                        </div>
-                    </div>
-                    <div class="slide" style="background-image: url('https://via.placeholder.com/1200x400');">
-                        <div class="slide-content">
-                            <h2 class="slide-title">Evento 3</h2>
-                            <p class="slide-description">Descripción del tercer evento. ¡Una noche inolvidable!</p>
-                            <div class="slide-date">Fecha: 15 de Octubre, 2023</div>
-                        </div>
-                    </div>
+                <div id="eventosCarrucel" class="carousel-inner">
+                    
+                    
                 </div>
                 <button class="carousel-button prev"><i class="fas fa-chevron-left"></i></button>
                 <button class="carousel-button next"><i class="fas fa-chevron-right"></i></button>
@@ -513,53 +494,8 @@
         init();
         animate();
 
-        const carousel = document.querySelector('.carousel-inner');
-        const slides = document.querySelectorAll('.slide');
-        const prevButton = document.querySelector('.prev');
-        const nextButton = document.querySelector('.next');
-        let currentSlide = 0;
-
-        function updateCarousel() {
-            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            updateCarousel();
-        }
-
-        prevButton.addEventListener('click', prevSlide);
-        nextButton.addEventListener('click', nextSlide);
-
-        let autoSlideInterval = setInterval(nextSlide, 5000);
-
-        carousel.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-        carousel.addEventListener('mouseleave', () => autoSlideInterval = setInterval(nextSlide, 5000));
-
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        carousel.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-        });
-
-        carousel.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].clientX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            if (touchEndX < touchStartX) {
-                nextSlide();
-            } else if (touchEndX > touchStartX) {
-                prevSlide();
-            }
-        }
+        
     </script>
+    <script src="js/js.js"></script>
 </body>
 </html>
